@@ -1,6 +1,6 @@
 # Tu preferes
 
-Jeu "Tu préfères" avec gestion des questions via une interface admin.
+![Capture d'écran de l'application](image.png)
 
 ## Installation
 
