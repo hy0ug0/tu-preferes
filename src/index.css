@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@source "../index.html";
+@source "./**/*.{ts,tsx}";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --color-background: #09090b;
+  --color-foreground: #f1f5f9;
+  --color-muted: #a1a1aa;
+  --color-card: #09090b;
+  --color-border: #27272a;
+  --color-accent: #38bdf8;
+  --shadow-soft: 0 0 0 1px rgba(148, 163, 184, 0.1), 0 12px 24px rgba(2, 6, 23, 0.35);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    font-family: var(--font-sans);
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    background-image:
+      linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: center top;
+  }
+}
+
+.bg-grid-fade {
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
