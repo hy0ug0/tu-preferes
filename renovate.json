@@ -2,43 +2,53 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:best-practices",
-    ":dependencyDashboard",
-    ":automergeMinor",
-    ":automergePatch",
-    ":automergeDigest",
-    ":rebaseStalePrs",
-    ":timezone(UTC)",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)",
+    ":semanticCommitScope(deps)",
     "group:recommended"
   ],
+  "timezone": "Europe/Paris",
+  "labels": ["dependencies"],
+  "dependencyDashboard": true,
+  "rangeStrategy": "bump",
+  "rebaseWhen": "behind-base-branch",
   "automergeType": "pr",
   "platformAutomerge": true,
-  "rangeStrategy": "bump",
   "minimumReleaseAge": "7 days",
+  "prConcurrentLimit": 5,
   "lockFileMaintenance": {
     "enabled": true,
-    "automerge": true
+    "schedule": ["before 5:00am on Monday"],
+    "automerge": true,
+    "automergeType": "pr",
+    "platformAutomerge": true
   },
   "packageRules": [
     {
+      "description": "Automerge devDependencies updates for this personal frontend",
       "matchDepTypes": ["devDependencies"],
-      "matchUpdateTypes": ["minor", "patch", "digest", "major"],
-      "automerge": true
+      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest", "pinDigest"],
+      "automerge": true,
+      "dependencyDashboardApproval": false
     },
     {
+      "description": "Automerge routine production dependency updates after CI",
       "matchDepTypes": ["dependencies"],
-      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest", "pinDigest"],
+      "matchCurrentVersion": "!/^0\\./",
       "automerge": true
     },
     {
+      "description": "Require approval for production majors",
       "matchDepTypes": ["dependencies"],
       "matchUpdateTypes": ["major"],
       "automerge": false,
       "dependencyDashboardApproval": true
     },
     {
+      "description": "Keep pre-1.0 packages out of automerge",
       "matchCurrentVersion": "/^0\\./",
       "automerge": false
     }
-  ],
-  "prConcurrentLimit": 5
+  ]
 }
