@@ -23,7 +23,7 @@
     "convex": "^1.41.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-hook-form": "^7.79.0",
+    "react-hook-form": "^7.80.0",
     "react-router-dom": "^7.18.0",
     "tailwind-merge": "^3.6.0",
     "zod": "^4.4.3"
