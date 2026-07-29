@@ -15,7 +15,7 @@
     "seed": "convex run seed:seedQuestions"
   },
   "dependencies": {
-    "@hookform/resolvers": "^5.4.3",
+    "@hookform/resolvers": "^5.5.7",
     "@radix-ui/react-slot": "^1.3.3",
     "@uidotdev/usehooks": "^2.4.1",
     "class-variance-authority": "^0.7.1",
