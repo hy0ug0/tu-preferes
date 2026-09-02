@@ -16,7 +16,7 @@
         "react-hook-form": "^7.86.0",
         "react-router-dom": "^7.18.3",
         "tailwind-merge": "^3.6.0",
-        "zod": "^4.5.2",
+        "zod": "^4.5.4",
       },
       "devDependencies": {
         "@tailwindcss/vite": "^4.1.18",
